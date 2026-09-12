@@ -1,0 +1,9 @@
+import Image from "next/image";
+import { Container } from "@/components/ui/Container";
+import { PageHero } from "@/components/PageHero";
+import { gallery } from "@/data/site";
+import { BookingCta } from "@/components/BookingCta";
+
+const images=["https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1200&q=85","https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=85","https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=1200&q=85","https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=85","https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1200&q=85","https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=85"];
+export const metadata={title:"Gallery"};
+export default function GalleryPage(){return <><PageHero eyebrow="The Gallery" title="A glimpse into the Lumina mood." description="A visual edit of our studio, beauty rituals and the kind of polished, effortless work we love to create."/><section className="section"><Container className="columns-1 gap-5 md:columns-2 lg:columns-3">{gallery.map((g,i)=><figure key={g.title} className="image-wrap group mb-5 break-inside-avoid overflow-hidden rounded-[28px] bg-[#f7e9e5] shadow-sm"><div className={i%3===1?"relative aspect-[4/5]":"relative aspect-[4/3]"}><Image src={images[i]} alt={g.title} fill sizes="(min-width:1024px) 33vw,(min-width:768px) 50vw,100vw" className="object-cover"/></div><figcaption className="glass relative mx-4 -mt-14 mb-4 rounded-2xl p-4"><p className="text-xs uppercase tracking-[.16em] text-[#b76e79]">{g.tag}</p><h2 className="mt-1 font-serif text-xl">{g.title}</h2></figcaption></figure>)}</Container></section><BookingCta/></>}

@@ -1,0 +1,8 @@
+import Image from "next/image";
+import { Container } from "@/components/ui/Container";
+import { PageHero } from "@/components/PageHero";
+import { stylists } from "@/data/site";
+import { BookingCta } from "@/components/BookingCta";
+const portraits=["https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=900&q=85","https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85","https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=85","https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=85"];
+export const metadata={title:"Our Team"};
+export default function TeamPage(){return <><PageHero eyebrow="Meet the Team" title="Artists who care about the details." description="Experienced stylists and beauty specialists who bring technical skill, creativity and a genuinely personal approach to every appointment."/><section className="section"><Container className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{stylists.map((s,i)=><article key={s.name} className="group overflow-hidden rounded-[30px] border border-[#eadedb] bg-white shadow-sm"><div className="image-wrap relative aspect-[4/5] overflow-hidden"><Image src={portraits[i]} alt={s.name} fill sizes="(min-width:1024px) 25vw,(min-width:640px) 50vw,100vw" className="object-cover"/></div><div className="p-6"><p className="text-xs font-bold uppercase tracking-[.16em] text-[#b76e79]">{s.role}</p><h2 className="mt-2 font-serif text-2xl">{s.name}</h2><p className="mt-1 text-sm text-[#746a70]">{s.specialty}</p><p className="mt-4 text-xs font-medium text-[#9b8f94]">{s.experience} experience</p></div></article>)}</Container></section><BookingCta/></>}
