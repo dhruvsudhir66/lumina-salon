@@ -29,3 +29,4 @@ The current demo uses curated Unsplash image URLs so the project remains lightwe
 
 ## Brand details
 The demo copy uses Lumina Salon & Beauty, Bangalore, with the existing sample contact details. Replace the address, phone, email, social links and pricing before launch.
+
